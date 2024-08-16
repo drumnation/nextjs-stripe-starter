@@ -1,8 +1,9 @@
-import Link from 'next/link';
-import s from './Footer.module.css';
-
-import Logo from 'components/icons/Logo';
 import GitHub from 'components/icons/GitHub';
+import Logo from 'components/icons/Logo';
+import Image from 'next/image';
+import Link from 'next/link';
+
+// import s from './Footer.module.css';
 
 export default function Footer() {
   return (
@@ -19,22 +20,34 @@ export default function Footer() {
         <div className="col-span-1 lg:col-span-2">
           <ul className="flex flex-initial flex-col md:flex-1">
             <li className="py-3 md:py-0 md:pb-4">
-              <Link href="/" className="text-white hover:text-zinc-200 transition ease-in-out duration-150">
+              <Link
+                href="/"
+                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+              >
                 Home
               </Link>
             </li>
             <li className="py-3 md:py-0 md:pb-4">
-              <Link href="/" className="text-white hover:text-zinc-200 transition ease-in-out duration-150">
+              <Link
+                href="/"
+                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+              >
                 About
               </Link>
             </li>
             <li className="py-3 md:py-0 md:pb-4">
-              <Link href="/" className="text-white hover:text-zinc-200 transition ease-in-out duration-150">
+              <Link
+                href="/"
+                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+              >
                 Careers
               </Link>
             </li>
             <li className="py-3 md:py-0 md:pb-4">
-              <Link href="/" className="text-white hover:text-zinc-200 transition ease-in-out duration-150">
+              <Link
+                href="/"
+                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+              >
                 Blog
               </Link>
             </li>
@@ -48,12 +61,18 @@ export default function Footer() {
               </p>
             </li>
             <li className="py-3 md:py-0 md:pb-4">
-              <Link href="/" className="text-white hover:text-zinc-200 transition ease-in-out duration-150">
+              <Link
+                href="/"
+                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+              >
                 Privacy Policy
               </Link>
             </li>
             <li className="py-3 md:py-0 md:pb-4">
-              <Link href="/" className="text-white hover:text-zinc-200 transition ease-in-out duration-150">
+              <Link
+                href="/"
+                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+              >
                 Terms of Use
               </Link>
             </li>
@@ -77,9 +96,11 @@ export default function Footer() {
         <div className="flex items-center">
           <span className="text-white">Crafted by</span>
           <a href="https://nhost.io" aria-label="Nhost.io Link">
-            <img
+            <Image
               src="/nhost.svg"
               alt="Nhost.io Logo"
+              width={24}
+              height={24}
               className="inline-block h-6 ml-4 text-white"
             />
           </a>

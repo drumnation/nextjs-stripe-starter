@@ -17,16 +17,16 @@ export const fetchData = <TData, TVariables>(
     }
 
     const res = await fetch(nhost.graphql.getUrl(), {
-      method: 'POST',
+      body: JSON.stringify({
+        query,
+        variables,
+      }),
       headers: {
         'Content-Type': 'application/json',
         ...authHeaders,
-        ...(options ?? {})
+        ...(options ?? {}),
       },
-      body: JSON.stringify({
-        query,
-        variables
-      })
+      method: 'POST',
     });
 
     const json = await res.json();

@@ -1,19 +1,19 @@
 import cn from 'classnames';
-import React, { forwardRef, useRef, ButtonHTMLAttributes } from 'react';
+import LoadingDots from 'components/ui/LoadingDots';
+import React, { ButtonHTMLAttributes, forwardRef, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+
 import styles from './Button.module.css';
 
-import LoadingDots from 'components/ui/LoadingDots';
-
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'slim' | 'flat';
-  active?: boolean;
-  width?: number;
-  loading?: boolean;
   Component?: React.ComponentType;
+  active?: boolean;
+  loading?: boolean;
+  variant?: 'slim' | 'flat';
+  width?: number;
 }
 
-const Button = forwardRef<HTMLButtonElement, Props>((props, buttonRef) => {
+const Button = forwardRef<HTMLButtonElement, Props>(function Button(props, buttonRef) {
   const {
     className,
     variant = 'flat',
@@ -32,7 +32,7 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, buttonRef) => {
     {
       [styles.slim]: variant === 'slim',
       [styles.loading]: loading,
-      [styles.disabled]: disabled
+      [styles.disabled]: disabled,
     },
     className
   );
@@ -45,7 +45,7 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, buttonRef) => {
       disabled={disabled}
       style={{
         width,
-        ...style
+        ...style,
       }}
       {...rest}
     >

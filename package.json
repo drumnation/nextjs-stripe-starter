@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "codegen": "graphql-codegen --config graphql.config.yaml --errors-only",
-    "stripe:listen": "stripe listen --forward-to=localhost:1337/v1/functions/webhook/stripe"
+    "stripe:listen": "stripe listen --forward-to=localhost:1337/v1/functions/webhook/stripe",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
     "@nhost/nextjs": "^2.1.18",
@@ -40,14 +41,32 @@
     "@types/react": "^18",
     "autoprefixer": "^10.4.20",
     "postcss": "8.4.41",
-    "prettier": "3.3.3",
-    "typescript": "^5.5.4"
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-playwright": "^0.15.3",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-typescript-sort-keys": "^3.2.0",
+    "prettier-eslint": "16.1.2",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1"
   },
   "prettier": {
-    "arrowParens": "always",
     "singleQuote": true,
+    "trailingComma": "es5",
     "tabWidth": 2,
-    "trailingComma": "none"
+    "semi": true,
+    "printWidth": 100
   },
   "packageManager": "pnpm@8.15.3+sha1.64838798f519c18029c1e8a1310e16101fc2eda0"
 }
