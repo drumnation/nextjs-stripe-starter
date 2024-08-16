@@ -6,7 +6,9 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import Layout from 'components/Layout';
 import { AppProps } from 'next/app';
 import React from 'react';
+import { Provider } from 'react-redux';
 
+import { store } from '@/redux/store';
 import { nhost } from '@/utils/nhost';
 import { queryClient } from '@/utils/react-query-client';
 
@@ -17,14 +19,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <div className="bg-black">
       <QueryClientProvider client={queryClient}>
         <NhostProvider nhost={nhost}>
-          <Layout>
-            <SignedIn>
-              <Component {...pageProps} />
-            </SignedIn>
-            <SignedOut>
-              <SignIn />
-            </SignedOut>
-          </Layout>
+          <Provider store={store}>
+            <Layout>
+              <SignedIn>
+                <Component {...pageProps} />
+              </SignedIn>
+              <SignedOut>
+                <SignIn />
+              </SignedOut>
+            </Layout>
+          </Provider>
         </NhostProvider>
       </QueryClientProvider>
     </div>
