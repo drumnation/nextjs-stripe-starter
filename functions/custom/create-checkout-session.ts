@@ -1,8 +1,9 @@
-import { getURL } from 'utils/helpers';
 import { Request, Response } from 'express';
 import { sdk } from 'functions/_utils/graphql-client';
-import { allowCors, getUser } from '../_utils/helpers';
 import { stripe } from 'functions/_utils/stripe';
+import { getURL } from 'utils/helpers';
+
+import { allowCors, getUser } from '../_utils/helpers';
 
 const handler = async (req: Request, res: Response) => {
   console.log('create-checkout-session called');
@@ -40,42 +41,36 @@ const handler = async (req: Request, res: Response) => {
 
     // make sure that users can only have one subscription at a time.
     if (user?.profile?.stripeCustomer.subscriptions.data.length) {
-      return res
-        .status(400)
-        .json({ error: 'User already have a subscription' });
+      return res.status(400).json({ error: 'User already have a subscription' });
     }
 
     if (!user?.profile?.stripeCustomerId) {
-      return res
-        .status(400)
-        .json({ error: 'User does not have a customer id' });
+      return res.status(400).json({ error: 'User does not have a customer id' });
     }
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      allow_promotion_codes: true,
       billing_address_collection: 'required',
+      cancel_url: `https://nextjs-stripe-starter-template.vercel.app/`,
       customer: user.profile.stripeCustomerId,
       line_items: [
         {
           price: priceId,
-          quantity: 1
-        }
+          quantity: 1,
+        },
       ],
       mode: 'subscription',
-      allow_promotion_codes: true,
+      payment_method_types: ['card'],
       subscription_data: {
-        trial_from_plan: true
+        trial_from_plan: true,
       },
       success_url: `https://nextjs-stripe-starter-template.vercel.app/account`,
-      cancel_url: `https://nextjs-stripe-starter-template.vercel.app/`
     });
 
-    return res
-      .status(200)
-      .json({ sessionId: session.id, sessionUrl: session.url });
+    return res.status(200).json({ sessionId: session.id, sessionUrl: session.url });
   } catch (err: any) {
     console.log(err);
-    res.status(500).json({ error: { statusCode: 500, message: err.message } });
+    res.status(500).json({ error: { message: err.message, statusCode: 500 } });
   }
 };
 

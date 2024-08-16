@@ -1,9 +1,9 @@
+import Footer from 'components/ui/Footer';
+import Navbar from 'components/ui/Navbar';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
-import Navbar from 'components/ui/Navbar';
-import Footer from 'components/ui/Footer';
 import { ReactNode } from 'react';
+
 import { PageMeta } from '../types';
 
 interface Props {
@@ -14,10 +14,10 @@ interface Props {
 export default function Layout({ children, meta: pageMeta }: Props) {
   const router = useRouter();
   const meta = {
-    title: 'Next.js Subscription Starter',
-    description: 'Brought to you by Next.js, Stripe, and Nhost.',
     cardImage: '/og.png',
-    ...pageMeta
+    description: 'Brought to you by Next.js, Stripe, and Nhost.',
+    title: 'Next.js Subscription Starter',
+    ...pageMeta,
   };
 
   return (

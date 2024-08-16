@@ -2,15 +2,15 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 
 export type UserHasuraClaims = {
-  'x-hasura-user-id': string;
-  'x-hasura-default-role': string;
   'x-hasura-allowed-roles': string[];
+  'x-hasura-default-role': string;
+  'x-hasura-user-id': string;
 };
 
 export type User = {
-  id: string;
-  defaultRole: string;
   allowedRoles: string[];
+  defaultRole: string;
+  id: string;
 };
 
 export const getUser = (req: Request): User | null => {
@@ -27,9 +27,9 @@ export const getUser = (req: Request): User | null => {
   ] as UserHasuraClaims;
 
   const user = {
-    id: hasuraClaims['x-hasura-user-id'],
+    allowedRoles: hasuraClaims['x-hasura-allowed-roles'],
     defaultRole: hasuraClaims['x-hasura-default-role'],
-    allowedRoles: hasuraClaims['x-hasura-allowed-roles']
+    id: hasuraClaims['x-hasura-user-id']
   };
 
   return user;

@@ -1,6 +1,7 @@
-import { stripe } from '../_utils/stripe';
 import { Request, Response } from 'express';
 import { sdk } from 'functions/_utils/graphql-client';
+
+import { stripe } from '../_utils/stripe';
 
 type NhostRequest = Request & {
   rawBody: string;
@@ -43,9 +44,9 @@ export default async function handler(req: NhostRequest, res: Response) {
       const { plans } = await sdk.getPlans({
         where: {
           stripePriceId: {
-            _eq: priceId
-          }
-        }
+            _eq: priceId,
+          },
+        },
       });
 
       const plan = plans[0];
@@ -57,10 +58,10 @@ export default async function handler(req: NhostRequest, res: Response) {
 
       // update profile with new stripe subscription id
       await sdk.UpdateProfileUsingStripeCustomerId({
-        stripeCustomerId: customerId,
         profile: {
-          plan_id: plan.id
-        }
+          plan_id: plan.id,
+        },
+        stripeCustomerId: customerId,
       });
 
       break;
@@ -74,10 +75,10 @@ export default async function handler(req: NhostRequest, res: Response) {
 
       // remove plan_id for profile
       await sdk.UpdateProfileUsingStripeCustomerId({
-        stripeCustomerId: customerId,
         profile: {
-          plan_id: null
-        }
+          plan_id: null,
+        },
+        stripeCustomerId: customerId,
       });
       break;
     }

@@ -1,19 +1,25 @@
 import { GraphQLClient } from 'graphql-request';
-import * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
   Boolean: boolean;
-  Int: number;
   Float: number;
+  ID: string;
+  Int: number;
   JSON: any;
+  String: string;
   bigint: any;
   bytea: any;
   citext: any;
@@ -89,16 +95,13 @@ export type Stripe = {
   customers: StripeCustomers;
 };
 
-
 export type StripeConnectedAccountArgs = {
   id: Scalars['String'];
 };
 
-
 export type StripeCustomerArgs = {
   id: Scalars['String'];
 };
-
 
 export type StripeCustomersArgs = {
   email?: InputMaybe<Scalars['String']>;
@@ -274,7 +277,6 @@ export type StripeCustomer = {
   subscriptions: StripeSubscriptions;
   tax?: Maybe<StripeCustomerTax>;
 };
-
 
 /** This object represents a customer of your business. It lets you create recurring charges and track payments that belong to the same customer. */
 export type StripeCustomerPaymentMethodsArgs = {
@@ -566,7 +568,6 @@ export type StripeMutations = {
   __typename?: 'StripeMutations';
   createBillingPortalSession: StripeBillingPortalSession;
 };
-
 
 export type StripeMutationsCreateBillingPortalSessionArgs = {
   configuration?: InputMaybe<Scalars['String']>;
@@ -1133,7 +1134,6 @@ export type AuthProviderRequests = {
   options?: Maybe<Scalars['jsonb']>;
 };
 
-
 /** Oauth requests, inserted before redirecting to the provider's site. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProviderRequestsOptionsArgs = {
   path?: InputMaybe<Scalars['String']>;
@@ -1153,7 +1153,6 @@ export type AuthProviderRequests_Aggregate_Fields = {
   max?: Maybe<AuthProviderRequests_Max_Fields>;
   min?: Maybe<AuthProviderRequests_Min_Fields>;
 };
-
 
 /** aggregate fields of "auth.provider_requests" */
 export type AuthProviderRequests_Aggregate_FieldsCountArgs = {
@@ -1308,7 +1307,6 @@ export type AuthProviders = {
   userProviders_aggregate: AuthUserProviders_Aggregate;
 };
 
-
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProvidersUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
@@ -1317,7 +1315,6 @@ export type AuthProvidersUserProvidersArgs = {
   order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
-
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProvidersUserProviders_AggregateArgs = {
@@ -1342,7 +1339,6 @@ export type AuthProviders_Aggregate_Fields = {
   max?: Maybe<AuthProviders_Max_Fields>;
   min?: Maybe<AuthProviders_Min_Fields>;
 };
-
 
 /** aggregate fields of "auth.providers" */
 export type AuthProviders_Aggregate_FieldsCountArgs = {
@@ -1490,7 +1486,6 @@ export type AuthRefreshTokens_Aggregate_Fields = {
   max?: Maybe<AuthRefreshTokens_Max_Fields>;
   min?: Maybe<AuthRefreshTokens_Min_Fields>;
 };
-
 
 /** aggregate fields of "auth.refresh_tokens" */
 export type AuthRefreshTokens_Aggregate_FieldsCountArgs = {
@@ -1671,7 +1666,6 @@ export type AuthRoles = {
   usersByDefaultRole_aggregate: Users_Aggregate;
 };
 
-
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
@@ -1680,7 +1674,6 @@ export type AuthRolesUserRolesArgs = {
   order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
-
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUserRoles_AggregateArgs = {
@@ -1691,7 +1684,6 @@ export type AuthRolesUserRoles_AggregateArgs = {
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
-
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUsersByDefaultRoleArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
@@ -1700,7 +1692,6 @@ export type AuthRolesUsersByDefaultRoleArgs = {
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
-
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRolesUsersByDefaultRole_AggregateArgs = {
@@ -1725,7 +1716,6 @@ export type AuthRoles_Aggregate_Fields = {
   max?: Maybe<AuthRoles_Max_Fields>;
   min?: Maybe<AuthRoles_Min_Fields>;
 };
-
 
 /** aggregate fields of "auth.roles" */
 export type AuthRoles_Aggregate_FieldsCountArgs = {
@@ -1883,7 +1873,6 @@ export type AuthUserProviders_Aggregate_Fields = {
   max?: Maybe<AuthUserProviders_Max_Fields>;
   min?: Maybe<AuthUserProviders_Min_Fields>;
 };
-
 
 /** aggregate fields of "auth.user_providers" */
 export type AuthUserProviders_Aggregate_FieldsCountArgs = {
@@ -2148,7 +2137,6 @@ export type AuthUserRoles_Aggregate_Fields = {
   min?: Maybe<AuthUserRoles_Min_Fields>;
 };
 
-
 /** aggregate fields of "auth.user_roles" */
 export type AuthUserRoles_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
@@ -2366,7 +2354,6 @@ export type AuthUserSecurityKeys_Aggregate_Fields = {
   var_samp?: Maybe<AuthUserSecurityKeys_Var_Samp_Fields>;
   variance?: Maybe<AuthUserSecurityKeys_Variance_Fields>;
 };
-
 
 /** aggregate fields of "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Aggregate_FieldsCountArgs = {
@@ -2703,7 +2690,6 @@ export type Buckets = {
   updatedAt: Scalars['timestamptz'];
 };
 
-
 /** columns and relationships of "storage.buckets" */
 export type BucketsFilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
@@ -2712,7 +2698,6 @@ export type BucketsFilesArgs = {
   order_by?: InputMaybe<Array<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
-
 
 /** columns and relationships of "storage.buckets" */
 export type BucketsFiles_AggregateArgs = {
@@ -2745,7 +2730,6 @@ export type Buckets_Aggregate_Fields = {
   var_samp?: Maybe<Buckets_Var_Samp_Fields>;
   variance?: Maybe<Buckets_Variance_Fields>;
 };
-
 
 /** aggregate fields of "storage.buckets" */
 export type Buckets_Aggregate_FieldsCountArgs = {
@@ -3125,7 +3109,6 @@ export type Files_Aggregate_Fields = {
   var_samp?: Maybe<Files_Var_Samp_Fields>;
   variance?: Maybe<Files_Variance_Fields>;
 };
-
 
 /** aggregate fields of "storage.files" */
 export type Files_Aggregate_FieldsCountArgs = {
@@ -3650,19 +3633,31 @@ export type Mutation_Root = {
   /** update data of the table: "auth.users" */
   updateUsers?: Maybe<Users_Mutation_Response>;
   /** update multiples rows of table: "auth.provider_requests" */
-  update_authProviderRequests_many?: Maybe<Array<Maybe<AuthProviderRequests_Mutation_Response>>>;
+  update_authProviderRequests_many?: Maybe<
+    Array<Maybe<AuthProviderRequests_Mutation_Response>>
+  >;
   /** update multiples rows of table: "auth.providers" */
-  update_authProviders_many?: Maybe<Array<Maybe<AuthProviders_Mutation_Response>>>;
+  update_authProviders_many?: Maybe<
+    Array<Maybe<AuthProviders_Mutation_Response>>
+  >;
   /** update multiples rows of table: "auth.refresh_tokens" */
-  update_authRefreshTokens_many?: Maybe<Array<Maybe<AuthRefreshTokens_Mutation_Response>>>;
+  update_authRefreshTokens_many?: Maybe<
+    Array<Maybe<AuthRefreshTokens_Mutation_Response>>
+  >;
   /** update multiples rows of table: "auth.roles" */
   update_authRoles_many?: Maybe<Array<Maybe<AuthRoles_Mutation_Response>>>;
   /** update multiples rows of table: "auth.user_providers" */
-  update_authUserProviders_many?: Maybe<Array<Maybe<AuthUserProviders_Mutation_Response>>>;
+  update_authUserProviders_many?: Maybe<
+    Array<Maybe<AuthUserProviders_Mutation_Response>>
+  >;
   /** update multiples rows of table: "auth.user_roles" */
-  update_authUserRoles_many?: Maybe<Array<Maybe<AuthUserRoles_Mutation_Response>>>;
+  update_authUserRoles_many?: Maybe<
+    Array<Maybe<AuthUserRoles_Mutation_Response>>
+  >;
   /** update multiples rows of table: "auth.user_security_keys" */
-  update_authUserSecurityKeys_many?: Maybe<Array<Maybe<AuthUserSecurityKeys_Mutation_Response>>>;
+  update_authUserSecurityKeys_many?: Maybe<
+    Array<Maybe<AuthUserSecurityKeys_Mutation_Response>>
+  >;
   /** update multiples rows of table: "storage.buckets" */
   update_buckets_many?: Maybe<Array<Maybe<Buckets_Mutation_Response>>>;
   /** update multiples rows of table: "storage.files" */
@@ -3683,150 +3678,125 @@ export type Mutation_Root = {
   update_users_many?: Maybe<Array<Maybe<Users_Mutation_Response>>>;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteAuthProviderArgs = {
   id: Scalars['String'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteAuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteAuthProviderRequestsArgs = {
   where: AuthProviderRequests_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteAuthProvidersArgs = {
   where: AuthProviders_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteAuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteAuthRefreshTokensArgs = {
   where: AuthRefreshTokens_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteAuthRoleArgs = {
   role: Scalars['String'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteAuthRolesArgs = {
   where: AuthRoles_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteAuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteAuthUserProvidersArgs = {
   where: AuthUserProviders_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteAuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteAuthUserRolesArgs = {
   where: AuthUserRoles_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteAuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteAuthUserSecurityKeysArgs = {
   where: AuthUserSecurityKeys_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteBucketArgs = {
   id: Scalars['String'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteBucketsArgs = {
   where: Buckets_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteFileArgs = {
   id: Scalars['uuid'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteFilesArgs = {
   where: Files_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDeleteUserArgs = {
   id: Scalars['uuid'];
 };
-
 
 /** mutation root */
 export type Mutation_RootDeleteUsersArgs = {
   where: Users_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_PlansArgs = {
   where: Plans_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_Plans_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_ProfilesArgs = {
   where: Profiles_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Profiles_By_PkArgs = {
   id: Scalars['uuid'];
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertAuthProviderArgs = {
@@ -3834,13 +3804,11 @@ export type Mutation_RootInsertAuthProviderArgs = {
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertAuthProviderRequestArgs = {
   object: AuthProviderRequests_Insert_Input;
   on_conflict?: InputMaybe<AuthProviderRequests_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertAuthProviderRequestsArgs = {
@@ -3848,13 +3816,11 @@ export type Mutation_RootInsertAuthProviderRequestsArgs = {
   on_conflict?: InputMaybe<AuthProviderRequests_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertAuthProvidersArgs = {
   objects: Array<AuthProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertAuthRefreshTokenArgs = {
@@ -3862,13 +3828,11 @@ export type Mutation_RootInsertAuthRefreshTokenArgs = {
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertAuthRefreshTokensArgs = {
   objects: Array<AuthRefreshTokens_Insert_Input>;
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertAuthRoleArgs = {
@@ -3876,13 +3840,11 @@ export type Mutation_RootInsertAuthRoleArgs = {
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertAuthRolesArgs = {
   objects: Array<AuthRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertAuthUserProviderArgs = {
@@ -3890,13 +3852,11 @@ export type Mutation_RootInsertAuthUserProviderArgs = {
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertAuthUserProvidersArgs = {
   objects: Array<AuthUserProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertAuthUserRoleArgs = {
@@ -3904,13 +3864,11 @@ export type Mutation_RootInsertAuthUserRoleArgs = {
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertAuthUserRolesArgs = {
   objects: Array<AuthUserRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertAuthUserSecurityKeyArgs = {
@@ -3918,13 +3876,11 @@ export type Mutation_RootInsertAuthUserSecurityKeyArgs = {
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertAuthUserSecurityKeysArgs = {
   objects: Array<AuthUserSecurityKeys_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertBucketArgs = {
@@ -3932,13 +3888,11 @@ export type Mutation_RootInsertBucketArgs = {
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertBucketsArgs = {
   objects: Array<Buckets_Insert_Input>;
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertFileArgs = {
@@ -3946,13 +3900,11 @@ export type Mutation_RootInsertFileArgs = {
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertFilesArgs = {
   objects: Array<Files_Insert_Input>;
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertProfileArgs = {
@@ -3960,13 +3912,11 @@ export type Mutation_RootInsertProfileArgs = {
   on_conflict?: InputMaybe<Profiles_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertProfilesArgs = {
   objects: Array<Profiles_Insert_Input>;
   on_conflict?: InputMaybe<Profiles_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsertUserArgs = {
@@ -3974,13 +3924,11 @@ export type Mutation_RootInsertUserArgs = {
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsertUsersArgs = {
   objects: Array<Users_Insert_Input>;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_PlansArgs = {
@@ -3988,20 +3936,17 @@ export type Mutation_RootInsert_PlansArgs = {
   on_conflict?: InputMaybe<Plans_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Plans_OneArgs = {
   object: Plans_Insert_Input;
   on_conflict?: InputMaybe<Plans_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthProviderArgs = {
   _set?: InputMaybe<AuthProviders_Set_Input>;
   pk_columns: AuthProviders_Pk_Columns_Input;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateAuthProviderRequestArgs = {
@@ -4014,7 +3959,6 @@ export type Mutation_RootUpdateAuthProviderRequestArgs = {
   pk_columns: AuthProviderRequests_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthProviderRequestsArgs = {
   _append?: InputMaybe<AuthProviderRequests_Append_Input>;
@@ -4026,13 +3970,11 @@ export type Mutation_RootUpdateAuthProviderRequestsArgs = {
   where: AuthProviderRequests_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthProvidersArgs = {
   _set?: InputMaybe<AuthProviders_Set_Input>;
   where: AuthProviders_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateAuthRefreshTokenArgs = {
@@ -4040,13 +3982,11 @@ export type Mutation_RootUpdateAuthRefreshTokenArgs = {
   pk_columns: AuthRefreshTokens_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthRefreshTokensArgs = {
   _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
   where: AuthRefreshTokens_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateAuthRoleArgs = {
@@ -4054,13 +3994,11 @@ export type Mutation_RootUpdateAuthRoleArgs = {
   pk_columns: AuthRoles_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthRolesArgs = {
   _set?: InputMaybe<AuthRoles_Set_Input>;
   where: AuthRoles_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateAuthUserProviderArgs = {
@@ -4068,13 +4006,11 @@ export type Mutation_RootUpdateAuthUserProviderArgs = {
   pk_columns: AuthUserProviders_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthUserProvidersArgs = {
   _set?: InputMaybe<AuthUserProviders_Set_Input>;
   where: AuthUserProviders_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateAuthUserRoleArgs = {
@@ -4082,13 +4018,11 @@ export type Mutation_RootUpdateAuthUserRoleArgs = {
   pk_columns: AuthUserRoles_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthUserRolesArgs = {
   _set?: InputMaybe<AuthUserRoles_Set_Input>;
   where: AuthUserRoles_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateAuthUserSecurityKeyArgs = {
@@ -4097,14 +4031,12 @@ export type Mutation_RootUpdateAuthUserSecurityKeyArgs = {
   pk_columns: AuthUserSecurityKeys_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateAuthUserSecurityKeysArgs = {
   _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
   _set?: InputMaybe<AuthUserSecurityKeys_Set_Input>;
   where: AuthUserSecurityKeys_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateBucketArgs = {
@@ -4113,14 +4045,12 @@ export type Mutation_RootUpdateBucketArgs = {
   pk_columns: Buckets_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateBucketsArgs = {
   _inc?: InputMaybe<Buckets_Inc_Input>;
   _set?: InputMaybe<Buckets_Set_Input>;
   where: Buckets_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateFileArgs = {
@@ -4129,14 +4059,12 @@ export type Mutation_RootUpdateFileArgs = {
   pk_columns: Files_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateFilesArgs = {
   _inc?: InputMaybe<Files_Inc_Input>;
   _set?: InputMaybe<Files_Set_Input>;
   where: Files_Bool_Exp;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdateUserArgs = {
@@ -4149,7 +4077,6 @@ export type Mutation_RootUpdateUserArgs = {
   pk_columns: Users_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdateUsersArgs = {
   _append?: InputMaybe<Users_Append_Input>;
@@ -4161,60 +4088,50 @@ export type Mutation_RootUpdateUsersArgs = {
   where: Users_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_AuthProviderRequests_ManyArgs = {
   updates: Array<AuthProviderRequests_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthProviders_ManyArgs = {
   updates: Array<AuthProviders_Updates>;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_AuthRefreshTokens_ManyArgs = {
   updates: Array<AuthRefreshTokens_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthRoles_ManyArgs = {
   updates: Array<AuthRoles_Updates>;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_AuthUserProviders_ManyArgs = {
   updates: Array<AuthUserProviders_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_AuthUserRoles_ManyArgs = {
   updates: Array<AuthUserRoles_Updates>;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs = {
   updates: Array<AuthUserSecurityKeys_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Buckets_ManyArgs = {
   updates: Array<Buckets_Updates>;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Files_ManyArgs = {
   updates: Array<Files_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_PlansArgs = {
@@ -4223,7 +4140,6 @@ export type Mutation_RootUpdate_PlansArgs = {
   where: Plans_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Plans_By_PkArgs = {
   _inc?: InputMaybe<Plans_Inc_Input>;
@@ -4231,12 +4147,10 @@ export type Mutation_RootUpdate_Plans_By_PkArgs = {
   pk_columns: Plans_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Plans_ManyArgs = {
   updates: Array<Plans_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_ProfilesArgs = {
@@ -4244,19 +4158,16 @@ export type Mutation_RootUpdate_ProfilesArgs = {
   where: Profiles_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Profiles_By_PkArgs = {
   _set?: InputMaybe<Profiles_Set_Input>;
   pk_columns: Profiles_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Profiles_ManyArgs = {
   updates: Array<Profiles_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_Users_ManyArgs = {
@@ -4296,7 +4207,6 @@ export type Plans = {
   updatedAt: Scalars['timestamptz'];
 };
 
-
 /** columns and relationships of "plans" */
 export type PlansProfilesArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
@@ -4305,7 +4215,6 @@ export type PlansProfilesArgs = {
   order_by?: InputMaybe<Array<Profiles_Order_By>>;
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
-
 
 /** columns and relationships of "plans" */
 export type PlansProfiles_AggregateArgs = {
@@ -4338,7 +4247,6 @@ export type Plans_Aggregate_Fields = {
   var_samp?: Maybe<Plans_Var_Samp_Fields>;
   variance?: Maybe<Plans_Variance_Fields>;
 };
-
 
 /** aggregate fields of "plans" */
 export type Plans_Aggregate_FieldsCountArgs = {
@@ -4623,7 +4531,6 @@ export type Profiles_Aggregate_Fields = {
   min?: Maybe<Profiles_Min_Fields>;
 };
 
-
 /** aggregate fields of "profiles" */
 export type Profiles_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Profiles_Select_Column>>;
@@ -4863,16 +4770,13 @@ export type Query_Root = {
   usersAggregate: Users_Aggregate;
 };
 
-
 export type Query_RootAuthProviderArgs = {
   id: Scalars['String'];
 };
 
-
 export type Query_RootAuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Query_RootAuthProviderRequestsArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
@@ -4882,7 +4786,6 @@ export type Query_RootAuthProviderRequestsArgs = {
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
-
 export type Query_RootAuthProviderRequestsAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4890,7 +4793,6 @@ export type Query_RootAuthProviderRequestsAggregateArgs = {
   order_by?: InputMaybe<Array<AuthProviderRequests_Order_By>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
-
 
 export type Query_RootAuthProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
@@ -4900,7 +4802,6 @@ export type Query_RootAuthProvidersArgs = {
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
-
 export type Query_RootAuthProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4909,11 +4810,9 @@ export type Query_RootAuthProvidersAggregateArgs = {
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
-
 export type Query_RootAuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
-
 
 export type Query_RootAuthRefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
@@ -4923,7 +4822,6 @@ export type Query_RootAuthRefreshTokensArgs = {
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
-
 export type Query_RootAuthRefreshTokensAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4932,11 +4830,9 @@ export type Query_RootAuthRefreshTokensAggregateArgs = {
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
-
 export type Query_RootAuthRoleArgs = {
   role: Scalars['String'];
 };
-
 
 export type Query_RootAuthRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
@@ -4946,7 +4842,6 @@ export type Query_RootAuthRolesArgs = {
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
-
 export type Query_RootAuthRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4955,11 +4850,9 @@ export type Query_RootAuthRolesAggregateArgs = {
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
-
 export type Query_RootAuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Query_RootAuthUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
@@ -4969,7 +4862,6 @@ export type Query_RootAuthUserProvidersArgs = {
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
-
 export type Query_RootAuthUserProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4978,11 +4870,9 @@ export type Query_RootAuthUserProvidersAggregateArgs = {
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
-
 export type Query_RootAuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Query_RootAuthUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
@@ -4992,7 +4882,6 @@ export type Query_RootAuthUserRolesArgs = {
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
-
 export type Query_RootAuthUserRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5001,11 +4890,9 @@ export type Query_RootAuthUserRolesAggregateArgs = {
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
-
 export type Query_RootAuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Query_RootAuthUserSecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
@@ -5015,7 +4902,6 @@ export type Query_RootAuthUserSecurityKeysArgs = {
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
-
 export type Query_RootAuthUserSecurityKeysAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5024,11 +4910,9 @@ export type Query_RootAuthUserSecurityKeysAggregateArgs = {
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
-
 export type Query_RootBucketArgs = {
   id: Scalars['String'];
 };
-
 
 export type Query_RootBucketsArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
@@ -5038,7 +4922,6 @@ export type Query_RootBucketsArgs = {
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
-
 export type Query_RootBucketsAggregateArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5047,11 +4930,9 @@ export type Query_RootBucketsAggregateArgs = {
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
-
 export type Query_RootFileArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Query_RootFilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
@@ -5061,7 +4942,6 @@ export type Query_RootFilesArgs = {
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
-
 export type Query_RootFilesAggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5069,7 +4949,6 @@ export type Query_RootFilesAggregateArgs = {
   order_by?: InputMaybe<Array<Files_Order_By>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
-
 
 export type Query_RootPlansArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
@@ -5079,7 +4958,6 @@ export type Query_RootPlansArgs = {
   where?: InputMaybe<Plans_Bool_Exp>;
 };
 
-
 export type Query_RootPlans_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5088,11 +4966,9 @@ export type Query_RootPlans_AggregateArgs = {
   where?: InputMaybe<Plans_Bool_Exp>;
 };
 
-
 export type Query_RootPlans_By_PkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Query_RootProfilesArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
@@ -5102,7 +4978,6 @@ export type Query_RootProfilesArgs = {
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
 
-
 export type Query_RootProfiles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5111,16 +4986,13 @@ export type Query_RootProfiles_AggregateArgs = {
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
 
-
 export type Query_RootProfiles_By_PkArgs = {
   id: Scalars['uuid'];
 };
 
-
 export type Query_RootUserArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Query_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
@@ -5129,7 +5001,6 @@ export type Query_RootUsersArgs = {
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
-
 
 export type Query_RootUsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
@@ -5239,16 +5110,13 @@ export type Subscription_Root = {
   users_stream: Array<Users>;
 };
 
-
 export type Subscription_RootAuthProviderArgs = {
   id: Scalars['String'];
 };
 
-
 export type Subscription_RootAuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootAuthProviderRequestsArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
@@ -5258,7 +5126,6 @@ export type Subscription_RootAuthProviderRequestsArgs = {
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthProviderRequestsAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5267,13 +5134,11 @@ export type Subscription_RootAuthProviderRequestsAggregateArgs = {
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthProviderRequests_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthProviderRequests_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
-
 
 export type Subscription_RootAuthProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
@@ -5283,7 +5148,6 @@ export type Subscription_RootAuthProvidersArgs = {
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5292,18 +5156,15 @@ export type Subscription_RootAuthProvidersAggregateArgs = {
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthProviders_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
-
 
 export type Subscription_RootAuthRefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
@@ -5313,7 +5174,6 @@ export type Subscription_RootAuthRefreshTokensArgs = {
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthRefreshTokensAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5322,18 +5182,15 @@ export type Subscription_RootAuthRefreshTokensAggregateArgs = {
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthRefreshTokens_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthRefreshTokens_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthRoleArgs = {
   role: Scalars['String'];
 };
-
 
 export type Subscription_RootAuthRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
@@ -5343,7 +5200,6 @@ export type Subscription_RootAuthRolesArgs = {
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5352,18 +5208,15 @@ export type Subscription_RootAuthRolesAggregateArgs = {
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthRoles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootAuthUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
@@ -5373,7 +5226,6 @@ export type Subscription_RootAuthUserProvidersArgs = {
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5382,18 +5234,15 @@ export type Subscription_RootAuthUserProvidersAggregateArgs = {
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserProviders_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootAuthUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
@@ -5403,7 +5252,6 @@ export type Subscription_RootAuthUserRolesArgs = {
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5412,18 +5260,15 @@ export type Subscription_RootAuthUserRolesAggregateArgs = {
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserRoles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootAuthUserSecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
@@ -5433,7 +5278,6 @@ export type Subscription_RootAuthUserSecurityKeysArgs = {
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserSecurityKeysAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5442,18 +5286,15 @@ export type Subscription_RootAuthUserSecurityKeysAggregateArgs = {
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
-
 export type Subscription_RootAuthUserSecurityKeys_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserSecurityKeys_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
-
 export type Subscription_RootBucketArgs = {
   id: Scalars['String'];
 };
-
 
 export type Subscription_RootBucketsArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
@@ -5463,7 +5304,6 @@ export type Subscription_RootBucketsArgs = {
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
-
 export type Subscription_RootBucketsAggregateArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5472,18 +5312,15 @@ export type Subscription_RootBucketsAggregateArgs = {
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
-
 export type Subscription_RootBuckets_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Buckets_Stream_Cursor_Input>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
-
 export type Subscription_RootFileArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootFilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
@@ -5493,7 +5330,6 @@ export type Subscription_RootFilesArgs = {
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
-
 export type Subscription_RootFilesAggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5502,13 +5338,11 @@ export type Subscription_RootFilesAggregateArgs = {
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
-
 export type Subscription_RootFiles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Files_Stream_Cursor_Input>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
-
 
 export type Subscription_RootPlansArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
@@ -5518,7 +5352,6 @@ export type Subscription_RootPlansArgs = {
   where?: InputMaybe<Plans_Bool_Exp>;
 };
 
-
 export type Subscription_RootPlans_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Plans_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5527,18 +5360,15 @@ export type Subscription_RootPlans_AggregateArgs = {
   where?: InputMaybe<Plans_Bool_Exp>;
 };
 
-
 export type Subscription_RootPlans_By_PkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootPlans_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Plans_Stream_Cursor_Input>>;
   where?: InputMaybe<Plans_Bool_Exp>;
 };
-
 
 export type Subscription_RootProfilesArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
@@ -5548,7 +5378,6 @@ export type Subscription_RootProfilesArgs = {
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfiles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Profiles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5557,11 +5386,9 @@ export type Subscription_RootProfiles_AggregateArgs = {
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
 
-
 export type Subscription_RootProfiles_By_PkArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootProfiles_StreamArgs = {
   batch_size: Scalars['Int'];
@@ -5569,11 +5396,9 @@ export type Subscription_RootProfiles_StreamArgs = {
   where?: InputMaybe<Profiles_Bool_Exp>;
 };
 
-
 export type Subscription_RootUserArgs = {
   id: Scalars['uuid'];
 };
-
 
 export type Subscription_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
@@ -5583,7 +5408,6 @@ export type Subscription_RootUsersArgs = {
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
-
 export type Subscription_RootUsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5591,7 +5415,6 @@ export type Subscription_RootUsersAggregateArgs = {
   order_by?: InputMaybe<Array<Users_Order_By>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
-
 
 export type Subscription_RootUsers_StreamArgs = {
   batch_size: Scalars['Int'];
@@ -5662,12 +5485,10 @@ export type Users = {
   userProviders_aggregate: AuthUserProviders_Aggregate;
 };
 
-
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersMetadataArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
-
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRefreshTokensArgs = {
@@ -5678,7 +5499,6 @@ export type UsersRefreshTokensArgs = {
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
-
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRefreshTokens_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
@@ -5687,7 +5507,6 @@ export type UsersRefreshTokens_AggregateArgs = {
   order_by?: InputMaybe<Array<AuthRefreshTokens_Order_By>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
-
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRolesArgs = {
@@ -5698,7 +5517,6 @@ export type UsersRolesArgs = {
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
-
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersRoles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
@@ -5707,7 +5525,6 @@ export type UsersRoles_AggregateArgs = {
   order_by?: InputMaybe<Array<AuthUserRoles_Order_By>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
-
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersSecurityKeysArgs = {
@@ -5718,7 +5535,6 @@ export type UsersSecurityKeysArgs = {
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
-
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersSecurityKeys_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
@@ -5728,7 +5544,6 @@ export type UsersSecurityKeys_AggregateArgs = {
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
-
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
@@ -5737,7 +5552,6 @@ export type UsersUserProvidersArgs = {
   order_by?: InputMaybe<Array<AuthUserProviders_Order_By>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
-
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type UsersUserProviders_AggregateArgs = {
@@ -5789,7 +5603,6 @@ export type Users_Aggregate_Fields = {
   max?: Maybe<Users_Max_Fields>;
   min?: Maybe<Users_Min_Fields>;
 };
-
 
 /** aggregate fields of "auth.users" */
 export type Users_Aggregate_FieldsCountArgs = {
@@ -6315,96 +6128,185 @@ export type GetPlansQueryVariables = Exact<{
   where: Plans_Bool_Exp;
 }>;
 
-
-export type GetPlansQuery = { __typename?: 'query_root', plans: Array<{ __typename?: 'plans', id: any, name: string }> };
+export type GetPlansQuery = {
+  __typename?: 'query_root';
+  plans: Array<{ __typename?: 'plans'; id: any; name: string }>;
+};
 
 export type InsertProfileMutationVariables = Exact<{
   profile: Profiles_Insert_Input;
 }>;
 
-
-export type InsertProfileMutation = { __typename?: 'mutation_root', insertProfile?: { __typename?: 'profiles', id: any } | null };
+export type InsertProfileMutation = {
+  __typename?: 'mutation_root';
+  insertProfile?: { __typename?: 'profiles'; id: any } | null;
+};
 
 export type UpdateProfileUsingStripeCustomerIdMutationVariables = Exact<{
-  stripeCustomerId: Scalars['String'];
   profile: Profiles_Set_Input;
+  stripeCustomerId: Scalars['String'];
 }>;
 
-
-export type UpdateProfileUsingStripeCustomerIdMutation = { __typename?: 'mutation_root', update_profiles?: { __typename?: 'profiles_mutation_response', affected_rows: number } | null };
+export type UpdateProfileUsingStripeCustomerIdMutation = {
+  __typename?: 'mutation_root';
+  update_profiles?: {
+    __typename?: 'profiles_mutation_response';
+    affected_rows: number;
+  } | null;
+};
 
 export type GetUserQueryVariables = Exact<{
   id: Scalars['uuid'];
 }>;
 
-
-export type GetUserQuery = { __typename?: 'query_root', user?: { __typename?: 'users', id: any, email?: any | null, displayName: string, profile?: { __typename?: 'profiles', id: any, stripeCustomerId?: string | null, stripeCustomer: { __typename?: 'StripeCustomer', subscriptions: { __typename?: 'StripeSubscriptions', data: Array<{ __typename?: 'StripeSubscription', id: string }> } } } | null } | null };
-
+export type GetUserQuery = {
+  __typename?: 'query_root';
+  user?: {
+    __typename?: 'users';
+    displayName: string;
+    email?: any | null;
+    id: any;
+    profile?: {
+      __typename?: 'profiles';
+      id: any;
+      stripeCustomer: {
+        __typename?: 'StripeCustomer';
+        subscriptions: {
+          __typename?: 'StripeSubscriptions';
+          data: Array<{ __typename?: 'StripeSubscription'; id: string }>;
+        };
+      };
+      stripeCustomerId?: string | null;
+    } | null;
+  } | null;
+};
 
 export const GetPlansDocument = gql`
-    query getPlans($where: plans_bool_exp!) {
-  plans(where: $where) {
-    id
-    name
-  }
-}
-    `;
-export const InsertProfileDocument = gql`
-    mutation InsertProfile($profile: profiles_insert_input!) {
-  insertProfile(object: $profile) {
-    id
-  }
-}
-    `;
-export const UpdateProfileUsingStripeCustomerIdDocument = gql`
-    mutation UpdateProfileUsingStripeCustomerId($stripeCustomerId: String!, $profile: profiles_set_input!) {
-  update_profiles(
-    where: {stripeCustomerId: {_eq: $stripeCustomerId}}
-    _set: $profile
-  ) {
-    affected_rows
-  }
-}
-    `;
-export const GetUserDocument = gql`
-    query getUser($id: uuid!) {
-  user(id: $id) {
-    id
-    email
-    displayName
-    profile {
+  query getPlans($where: plans_bool_exp!) {
+    plans(where: $where) {
       id
-      stripeCustomerId
-      stripeCustomer {
-        subscriptions {
-          data {
-            id
+      name
+    }
+  }
+`;
+export const InsertProfileDocument = gql`
+  mutation InsertProfile($profile: profiles_insert_input!) {
+    insertProfile(object: $profile) {
+      id
+    }
+  }
+`;
+export const UpdateProfileUsingStripeCustomerIdDocument = gql`
+  mutation UpdateProfileUsingStripeCustomerId(
+    $stripeCustomerId: String!
+    $profile: profiles_set_input!
+  ) {
+    update_profiles(
+      where: { stripeCustomerId: { _eq: $stripeCustomerId } }
+      _set: $profile
+    ) {
+      affected_rows
+    }
+  }
+`;
+export const GetUserDocument = gql`
+  query getUser($id: uuid!) {
+    user(id: $id) {
+      id
+      email
+      displayName
+      profile {
+        id
+        stripeCustomerId
+        stripeCustomer {
+          subscriptions {
+            data {
+              id
+            }
           }
         }
       }
     }
   }
-}
-    `;
+`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+export type SdkFunctionWrapper = <T>(
+  action: (requestHeaders?: Record<string, string>) => Promise<T>,
+  operationName: string,
+  operationType?: string
+) => Promise<T>;
 
+const defaultWrapper: SdkFunctionWrapper = (
+  action,
+  _operationName,
+  _operationType
+) => action();
 
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
-
-export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
+export function getSdk(
+  client: GraphQLClient,
+  withWrapper: SdkFunctionWrapper = defaultWrapper
+) {
   return {
-    getPlans(variables: GetPlansQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetPlansQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPlansQuery>(GetPlansDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPlans', 'query');
+    InsertProfile(
+      variables: InsertProfileMutationVariables,
+      requestHeaders?: RequestInit['headers']
+    ): Promise<InsertProfileMutation> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<InsertProfileMutation>(
+            InsertProfileDocument,
+            variables,
+            {
+              ...requestHeaders,
+              ...wrappedRequestHeaders
+            }
+          ),
+        'InsertProfile',
+        'mutation'
+      );
     },
-    InsertProfile(variables: InsertProfileMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<InsertProfileMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<InsertProfileMutation>(InsertProfileDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'InsertProfile', 'mutation');
+    UpdateProfileUsingStripeCustomerId(
+      variables: UpdateProfileUsingStripeCustomerIdMutationVariables,
+      requestHeaders?: RequestInit['headers']
+    ): Promise<UpdateProfileUsingStripeCustomerIdMutation> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<UpdateProfileUsingStripeCustomerIdMutation>(
+            UpdateProfileUsingStripeCustomerIdDocument,
+            variables,
+            { ...requestHeaders, ...wrappedRequestHeaders }
+          ),
+        'UpdateProfileUsingStripeCustomerId',
+        'mutation'
+      );
     },
-    UpdateProfileUsingStripeCustomerId(variables: UpdateProfileUsingStripeCustomerIdMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<UpdateProfileUsingStripeCustomerIdMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<UpdateProfileUsingStripeCustomerIdMutation>(UpdateProfileUsingStripeCustomerIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'UpdateProfileUsingStripeCustomerId', 'mutation');
+    getPlans(
+      variables: GetPlansQueryVariables,
+      requestHeaders?: RequestInit['headers']
+    ): Promise<GetPlansQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetPlansQuery>(GetPlansDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders
+          }),
+        'getPlans',
+        'query'
+      );
     },
-    getUser(variables: GetUserQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetUserQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetUserQuery>(GetUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getUser', 'query');
+    getUser(
+      variables: GetUserQueryVariables,
+      requestHeaders?: RequestInit['headers']
+    ): Promise<GetUserQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetUserQuery>(GetUserDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders
+          }),
+        'getUser',
+        'query'
+      );
     }
   };
 }

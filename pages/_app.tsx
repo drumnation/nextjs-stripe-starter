@@ -1,15 +1,15 @@
 import 'styles/main.css';
 import 'styles/chrome-bug.css';
 
-import React from 'react';
-
+import { NhostProvider, SignedIn, SignedOut } from '@nhost/nextjs';
+import { QueryClientProvider } from '@tanstack/react-query';
 import Layout from 'components/Layout';
 import { AppProps } from 'next/app';
+import React from 'react';
 
-import { NhostProvider, SignedIn, SignedOut } from '@nhost/nextjs';
 import { nhost } from '@/utils/nhost';
-import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/utils/react-query-client';
+
 import SignIn from './signin';
 
 export default function MyApp({ Component, pageProps }: AppProps) {

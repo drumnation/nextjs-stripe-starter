@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import s from './Navbar.module.css';
-
-import Logo from 'components/icons/Logo';
-import { useRouter } from 'next/router';
 import { useAuthenticationStatus, useNhostClient } from '@nhost/nextjs';
+import Logo from 'components/icons/Logo';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import s from './Navbar.module.css';
 
 const Navbar = () => {
   const router = useRouter();
@@ -34,15 +34,21 @@ const Navbar = () => {
 
           <div className="flex flex-1 justify-end space-x-8">
             {isAuthenticated ? (
-              <span
+              <button
                 className={s.link}
                 onClick={async () => {
                   await nhost.auth.signOut();
                   router.push('/signin');
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    nhost.auth.signOut().then(() => router.push('/signin'));
+                  }
+                }}
               >
                 Sign out
-              </span>
+              </button>
             ) : (
               <Link href="/signin" className={s.link}>
                 Sign in
