@@ -59,13 +59,12 @@ export default function Pricing({ plans, userWithSubscription }: PricingProps) {
         'custom/create-checkout-session',
         {
           priceId
-        },
-        {
-          useAxios: false
         }
       );
 
-      console.log(res);
+      if (res) {
+        console.log(res);
+      }
       console.log(error);
 
       if (error) {

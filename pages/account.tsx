@@ -41,7 +41,7 @@ export default function Account() {
 
   const {
     mutateAsync: createCustomerPortalSession,
-    isLoading: createCustomerPortalSessionIsLoading
+    isPending: createCustomerPortalSessionIsPending
   } = useCreateCustomerPortalSessionMutation();
 
   const redirectToCustomerPortal = async () => {
@@ -78,8 +78,6 @@ export default function Account() {
   const productSubscription =
     user?.profile?.stripeCustomer.subscriptions?.data[0]?.items.data[0];
 
-  console.log(productSubscription);
-
   const subscriptionPrice =
     productSubscription &&
     new Intl.NumberFormat('en-US', {
@@ -114,9 +112,9 @@ export default function Account() {
               </p>
               <Button
                 variant="slim"
-                loading={createCustomerPortalSessionIsLoading}
+                loading={createCustomerPortalSessionIsPending}
                 disabled={
-                  createCustomerPortalSessionIsLoading || !productSubscription
+                  createCustomerPortalSessionIsPending || !productSubscription
                 }
                 onClick={() => redirectToCustomerPortal()}
               >
@@ -133,9 +131,7 @@ export default function Account() {
             ) : productSubscription ? (
               `${subscriptionPrice}/mo`
             ) : (
-              <Link href="/">
-                <a>Choose your plan</a>
-              </Link>
+              <Link href="/">Choose your plan</Link>
             )}
           </div>
         </Card>
@@ -151,11 +147,11 @@ export default function Account() {
         >
           {data.user?.profile?.stripeCustomer.invoices?.data.map((invoice) => {
             if (!invoice.hostedInvoiceUrl) {
-              return;
+              return null;
             }
 
             return (
-              <div>
+              <div key={invoice.id}>
                 <a href={invoice.hostedInvoiceUrl}>
                   Invoice{' '}
                   {format(fromUnixTime(invoice.created), 'yyyy-MM-dd HH:mm')}
