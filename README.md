@@ -32,8 +32,8 @@ The ultimate starter kit for high-performance SaaS applications.
 ### Nhost
 
 - Clone this repo.
-- Copy `.env.local.example` to `.env.development`.
-- Add the following environment variables from [Stripe](https://dashboard.stripe.com/test/apikeys) to the `.env.development` file:
+- Copy `.env.local.example` to `.env`.
+- Add the following environment variables from [Stripe](https://dashboard.stripe.com/test/apikeys) to the `.env` file:
   - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
   - `STRIPE_SECRET_KEY`
 
@@ -47,7 +47,7 @@ The ultimate starter kit for high-performance SaaS applications.
 - Make sure you have the [Stripe CLI](https://stripe.com/docs/stripe-cli) installed.
 - Run `pnpm stripe:listen`.
 - You'll see an output stating the Webhook signing secret starting with `whsec_`.
-- Copy the Webhook signing secret to your `.env.development` for `STRIPE_WEBHOOK_SECRET`.
+- Copy the Webhook signing secret to your `.env` for `STRIPE_WEBHOOK_SECRET`.
 
 ### Frontend and Backend
 

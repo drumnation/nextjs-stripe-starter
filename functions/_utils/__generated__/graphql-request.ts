@@ -1,17 +1,12 @@
 import { GraphQLClient } from 'graphql-request';
+import * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
 
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   Boolean: boolean;
@@ -729,7 +724,7 @@ export enum StripePaymentMethodCardWalletType {
   GooglePay = 'google_pay',
   Masterpass = 'masterpass',
   SamsungPay = 'samsung_pay',
-  VisaCheckout = 'visa_checkout'
+  VisaCheckout = 'visa_checkout',
 }
 
 export type StripePaymentMethodCardWalletVisaCheckout = {
@@ -772,7 +767,7 @@ export enum StripePaymentMethodTypes {
   SepaDebit = 'sepa_debit',
   Sofort = 'sofort',
   UsBankAccount = 'us_bank_account',
-  WechatPay = 'wechat_pay'
+  WechatPay = 'wechat_pay',
 }
 
 export type StripePaymentMethods = {
@@ -1177,7 +1172,7 @@ export type AuthProviderRequests_Bool_Exp = {
 /** unique or primary key constraints on table "auth.provider_requests" */
 export enum AuthProviderRequests_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ProviderRequestsPkey = 'provider_requests_pkey'
+  ProviderRequestsPkey = 'provider_requests_pkey',
 }
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
@@ -1250,7 +1245,7 @@ export enum AuthProviderRequests_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Options = 'options'
+  Options = 'options',
 }
 
 /** input type for updating data in table "auth.provider_requests" */
@@ -1278,7 +1273,7 @@ export enum AuthProviderRequests_Update_Column {
   /** column name */
   Id = 'id',
   /** column name */
-  Options = 'options'
+  Options = 'options',
 }
 
 export type AuthProviderRequests_Updates = {
@@ -1359,7 +1354,7 @@ export type AuthProviders_Bool_Exp = {
 /** unique or primary key constraints on table "auth.providers" */
 export enum AuthProviders_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ProvidersPkey = 'providers_pkey'
+  ProvidersPkey = 'providers_pkey',
 }
 
 /** input type for inserting data into table "auth.providers" */
@@ -1417,7 +1412,7 @@ export type AuthProviders_Pk_Columns_Input = {
 /** select columns of table "auth.providers" */
 export enum AuthProviders_Select_Column {
   /** column name */
-  Id = 'id'
+  Id = 'id',
 }
 
 /** input type for updating data in table "auth.providers" */
@@ -1441,7 +1436,7 @@ export type AuthProviders_Stream_Cursor_Value_Input = {
 /** update columns of table "auth.providers" */
 export enum AuthProviders_Update_Column {
   /** column name */
-  Id = 'id'
+  Id = 'id',
 }
 
 export type AuthProviders_Updates = {
@@ -1522,7 +1517,7 @@ export type AuthRefreshTokens_Bool_Exp = {
 /** unique or primary key constraints on table "auth.refresh_tokens" */
 export enum AuthRefreshTokens_Constraint {
   /** unique or primary key constraint on columns "refresh_token" */
-  RefreshTokensPkey = 'refresh_tokens_pkey'
+  RefreshTokensPkey = 'refresh_tokens_pkey',
 }
 
 /** input type for inserting data into table "auth.refresh_tokens" */
@@ -1607,7 +1602,7 @@ export enum AuthRefreshTokens_Select_Column {
   /** column name */
   RefreshToken = 'refreshToken',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 /** input type for updating data in table "auth.refresh_tokens" */
@@ -1643,7 +1638,7 @@ export enum AuthRefreshTokens_Update_Column {
   /** column name */
   RefreshToken = 'refreshToken',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 export type AuthRefreshTokens_Updates = {
@@ -1738,7 +1733,7 @@ export type AuthRoles_Bool_Exp = {
 /** unique or primary key constraints on table "auth.roles" */
 export enum AuthRoles_Constraint {
   /** unique or primary key constraint on columns "role" */
-  RolesPkey = 'roles_pkey'
+  RolesPkey = 'roles_pkey',
 }
 
 /** input type for inserting data into table "auth.roles" */
@@ -1798,7 +1793,7 @@ export type AuthRoles_Pk_Columns_Input = {
 /** select columns of table "auth.roles" */
 export enum AuthRoles_Select_Column {
   /** column name */
-  Role = 'role'
+  Role = 'role',
 }
 
 /** input type for updating data in table "auth.roles" */
@@ -1822,7 +1817,7 @@ export type AuthRoles_Stream_Cursor_Value_Input = {
 /** update columns of table "auth.roles" */
 export enum AuthRoles_Update_Column {
   /** column name */
-  Role = 'role'
+  Role = 'role',
 }
 
 export type AuthRoles_Updates = {
@@ -1918,7 +1913,7 @@ export enum AuthUserProviders_Constraint {
   /** unique or primary key constraint on columns "provider_id", "provider_user_id" */
   UserProvidersProviderIdProviderUserIdKey = 'user_providers_provider_id_provider_user_id_key',
   /** unique or primary key constraint on columns "provider_id", "user_id" */
-  UserProvidersUserIdProviderIdKey = 'user_providers_user_id_provider_id_key'
+  UserProvidersUserIdProviderIdKey = 'user_providers_user_id_provider_id_key',
 }
 
 /** input type for inserting data into table "auth.user_providers" */
@@ -2037,7 +2032,7 @@ export enum AuthUserProviders_Select_Column {
   /** column name */
   UpdatedAt = 'updatedAt',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 /** input type for updating data in table "auth.user_providers" */
@@ -2089,7 +2084,7 @@ export enum AuthUserProviders_Update_Column {
   /** column name */
   UpdatedAt = 'updatedAt',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 export type AuthUserProviders_Updates = {
@@ -2175,7 +2170,7 @@ export enum AuthUserRoles_Constraint {
   /** unique or primary key constraint on columns "id" */
   UserRolesPkey = 'user_roles_pkey',
   /** unique or primary key constraint on columns "user_id", "role" */
-  UserRolesUserIdRoleKey = 'user_roles_user_id_role_key'
+  UserRolesUserIdRoleKey = 'user_roles_user_id_role_key',
 }
 
 /** input type for inserting data into table "auth.user_roles" */
@@ -2262,7 +2257,7 @@ export enum AuthUserRoles_Select_Column {
   /** column name */
   Role = 'role',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 /** input type for updating data in table "auth.user_roles" */
@@ -2298,7 +2293,7 @@ export enum AuthUserRoles_Update_Column {
   /** column name */
   Role = 'role',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 export type AuthUserRoles_Updates = {
@@ -2414,7 +2409,7 @@ export enum AuthUserSecurityKeys_Constraint {
   /** unique or primary key constraint on columns "credential_id" */
   UserSecurityKeyCredentialIdKey = 'user_security_key_credential_id_key',
   /** unique or primary key constraint on columns "id" */
-  UserSecurityKeysPkey = 'user_security_keys_pkey'
+  UserSecurityKeysPkey = 'user_security_keys_pkey',
 }
 
 /** input type for incrementing numeric columns in table "auth.user_security_keys" */
@@ -2524,7 +2519,7 @@ export enum AuthUserSecurityKeys_Select_Column {
   /** column name */
   Transports = 'transports',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 /** input type for updating data in table "auth.user_security_keys" */
@@ -2616,7 +2611,7 @@ export enum AuthUserSecurityKeys_Update_Column {
   /** column name */
   Transports = 'transports',
   /** column name */
-  UserId = 'userId'
+  UserId = 'userId',
 }
 
 export type AuthUserSecurityKeys_Updates = {
@@ -2765,7 +2760,7 @@ export type Buckets_Bool_Exp = {
 /** unique or primary key constraints on table "storage.buckets" */
 export enum Buckets_Constraint {
   /** unique or primary key constraint on columns "id" */
-  BucketsPkey = 'buckets_pkey'
+  BucketsPkey = 'buckets_pkey',
 }
 
 /** input type for incrementing numeric columns in table "storage.buckets" */
@@ -2870,7 +2865,7 @@ export enum Buckets_Select_Column {
   /** column name */
   PresignedUrlsEnabled = 'presignedUrlsEnabled',
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 /** input type for updating data in table "storage.buckets" */
@@ -2954,7 +2949,7 @@ export enum Buckets_Update_Column {
   /** column name */
   PresignedUrlsEnabled = 'presignedUrlsEnabled',
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 export type Buckets_Updates = {
@@ -3040,7 +3035,7 @@ export enum Cursor_Ordering {
   /** ascending ordering of the cursor */
   Asc = 'ASC',
   /** descending ordering of the cursor */
-  Desc = 'DESC'
+  Desc = 'DESC',
 }
 
 /** columns and relationships of "storage.files" */
@@ -3170,7 +3165,7 @@ export type Files_Bool_Exp = {
 /** unique or primary key constraints on table "storage.files" */
 export enum Files_Constraint {
   /** unique or primary key constraint on columns "id" */
-  FilesPkey = 'files_pkey'
+  FilesPkey = 'files_pkey',
 }
 
 /** input type for incrementing numeric columns in table "storage.files" */
@@ -3304,19 +3299,19 @@ export enum Files_Select_Column {
   /** column name */
   UpdatedAt = 'updatedAt',
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
+  UploadedByUserId = 'uploadedByUserId',
 }
 
 /** select "files_aggregate_bool_exp_bool_and_arguments_columns" columns of table "storage.files" */
 export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
   /** column name */
-  IsUploaded = 'isUploaded'
+  IsUploaded = 'isUploaded',
 }
 
 /** select "files_aggregate_bool_exp_bool_or_arguments_columns" columns of table "storage.files" */
 export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
   /** column name */
-  IsUploaded = 'isUploaded'
+  IsUploaded = 'isUploaded',
 }
 
 /** input type for updating data in table "storage.files" */
@@ -3420,7 +3415,7 @@ export enum Files_Update_Column {
   /** column name */
   UpdatedAt = 'updatedAt',
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
+  UploadedByUserId = 'uploadedByUserId',
 }
 
 export type Files_Updates = {
@@ -3633,31 +3628,19 @@ export type Mutation_Root = {
   /** update data of the table: "auth.users" */
   updateUsers?: Maybe<Users_Mutation_Response>;
   /** update multiples rows of table: "auth.provider_requests" */
-  update_authProviderRequests_many?: Maybe<
-    Array<Maybe<AuthProviderRequests_Mutation_Response>>
-  >;
+  update_authProviderRequests_many?: Maybe<Array<Maybe<AuthProviderRequests_Mutation_Response>>>;
   /** update multiples rows of table: "auth.providers" */
-  update_authProviders_many?: Maybe<
-    Array<Maybe<AuthProviders_Mutation_Response>>
-  >;
+  update_authProviders_many?: Maybe<Array<Maybe<AuthProviders_Mutation_Response>>>;
   /** update multiples rows of table: "auth.refresh_tokens" */
-  update_authRefreshTokens_many?: Maybe<
-    Array<Maybe<AuthRefreshTokens_Mutation_Response>>
-  >;
+  update_authRefreshTokens_many?: Maybe<Array<Maybe<AuthRefreshTokens_Mutation_Response>>>;
   /** update multiples rows of table: "auth.roles" */
   update_authRoles_many?: Maybe<Array<Maybe<AuthRoles_Mutation_Response>>>;
   /** update multiples rows of table: "auth.user_providers" */
-  update_authUserProviders_many?: Maybe<
-    Array<Maybe<AuthUserProviders_Mutation_Response>>
-  >;
+  update_authUserProviders_many?: Maybe<Array<Maybe<AuthUserProviders_Mutation_Response>>>;
   /** update multiples rows of table: "auth.user_roles" */
-  update_authUserRoles_many?: Maybe<
-    Array<Maybe<AuthUserRoles_Mutation_Response>>
-  >;
+  update_authUserRoles_many?: Maybe<Array<Maybe<AuthUserRoles_Mutation_Response>>>;
   /** update multiples rows of table: "auth.user_security_keys" */
-  update_authUserSecurityKeys_many?: Maybe<
-    Array<Maybe<AuthUserSecurityKeys_Mutation_Response>>
-  >;
+  update_authUserSecurityKeys_many?: Maybe<Array<Maybe<AuthUserSecurityKeys_Mutation_Response>>>;
   /** update multiples rows of table: "storage.buckets" */
   update_buckets_many?: Maybe<Array<Maybe<Buckets_Mutation_Response>>>;
   /** update multiples rows of table: "storage.files" */
@@ -4187,7 +4170,7 @@ export enum Order_By {
   /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = 'desc_nulls_last',
 }
 
 /** columns and relationships of "plans" */
@@ -4282,7 +4265,7 @@ export enum Plans_Constraint {
   /** unique or primary key constraint on columns "id" */
   ProductsPkey = 'products_pkey',
   /** unique or primary key constraint on columns "stripe_price_id" */
-  ProductsPriceIdKey = 'products_price_id_key'
+  ProductsPriceIdKey = 'products_price_id_key',
 }
 
 /** input type for incrementing numeric columns in table "plans" */
@@ -4387,7 +4370,7 @@ export enum Plans_Select_Column {
   /** column name */
   StripePriceId = 'stripePriceId',
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 /** input type for updating data in table "plans" */
@@ -4463,7 +4446,7 @@ export enum Plans_Update_Column {
   /** column name */
   StripePriceId = 'stripePriceId',
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 export type Plans_Updates = {
@@ -4566,7 +4549,7 @@ export type Profiles_Bool_Exp = {
 /** unique or primary key constraints on table "profiles" */
 export enum Profiles_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ProfilesPkey = 'profiles_pkey'
+  ProfilesPkey = 'profiles_pkey',
 }
 
 /** input type for inserting data into table "profiles" */
@@ -4652,7 +4635,7 @@ export enum Profiles_Select_Column {
   /** column name */
   PlanId = 'plan_id',
   /** column name */
-  StripeCustomerId = 'stripeCustomerId'
+  StripeCustomerId = 'stripeCustomerId',
 }
 
 /** input type for updating data in table "profiles" */
@@ -4684,7 +4667,7 @@ export enum Profiles_Update_Column {
   /** column name */
   PlanId = 'plan_id',
   /** column name */
-  StripeCustomerId = 'stripeCustomerId'
+  StripeCustomerId = 'stripeCustomerId',
 }
 
 export type Profiles_Updates = {
@@ -5678,7 +5661,7 @@ export enum Users_Constraint {
   /** unique or primary key constraint on columns "phone_number" */
   UsersPhoneNumberKey = 'users_phone_number_key',
   /** unique or primary key constraint on columns "id" */
-  UsersPkey = 'users_pkey'
+  UsersPkey = 'users_pkey',
 }
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
@@ -5948,7 +5931,7 @@ export enum Users_Select_Column {
   /** column name */
   TotpSecret = 'totpSecret',
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 /** select "users_aggregate_bool_exp_bool_and_arguments_columns" columns of table "auth.users" */
@@ -5960,7 +5943,7 @@ export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Colu
   /** column name */
   IsAnonymous = 'isAnonymous',
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
+  PhoneNumberVerified = 'phoneNumberVerified',
 }
 
 /** select "users_aggregate_bool_exp_bool_or_arguments_columns" columns of table "auth.users" */
@@ -5972,7 +5955,7 @@ export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Colum
   /** column name */
   IsAnonymous = 'isAnonymous',
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
+  PhoneNumberVerified = 'phoneNumberVerified',
 }
 
 /** input type for updating data in table "auth.users" */
@@ -6092,7 +6075,7 @@ export enum Users_Update_Column {
   /** column name */
   TotpSecret = 'totpSecret',
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = 'updatedAt',
 }
 
 export type Users_Updates = {
@@ -6149,10 +6132,7 @@ export type UpdateProfileUsingStripeCustomerIdMutationVariables = Exact<{
 
 export type UpdateProfileUsingStripeCustomerIdMutation = {
   __typename?: 'mutation_root';
-  update_profiles?: {
-    __typename?: 'profiles_mutation_response';
-    affected_rows: number;
-  } | null;
+  update_profiles?: { __typename?: 'profiles_mutation_response'; affected_rows: number } | null;
 };
 
 export type GetUserQueryVariables = Exact<{
@@ -6201,10 +6181,7 @@ export const UpdateProfileUsingStripeCustomerIdDocument = gql`
     $stripeCustomerId: String!
     $profile: profiles_set_input!
   ) {
-    update_profiles(
-      where: { stripeCustomerId: { _eq: $stripeCustomerId } }
-      _set: $profile
-    ) {
+    update_profiles(where: { stripeCustomerId: { _eq: $stripeCustomerId } }, _set: $profile) {
       affected_rows
     }
   }
@@ -6236,38 +6213,27 @@ export type SdkFunctionWrapper = <T>(
   operationType?: string
 ) => Promise<T>;
 
-const defaultWrapper: SdkFunctionWrapper = (
-  action,
-  _operationName,
-  _operationType
-) => action();
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
-export function getSdk(
-  client: GraphQLClient,
-  withWrapper: SdkFunctionWrapper = defaultWrapper
-) {
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
     InsertProfile(
       variables: InsertProfileMutationVariables,
-      requestHeaders?: RequestInit['headers']
+      requestHeaders?: Dom.RequestInit['headers']
     ): Promise<InsertProfileMutation> {
       return withWrapper(
         (wrappedRequestHeaders) =>
-          client.request<InsertProfileMutation>(
-            InsertProfileDocument,
-            variables,
-            {
-              ...requestHeaders,
-              ...wrappedRequestHeaders
-            }
-          ),
+          client.request<InsertProfileMutation>(InsertProfileDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
         'InsertProfile',
         'mutation'
       );
     },
     UpdateProfileUsingStripeCustomerId(
       variables: UpdateProfileUsingStripeCustomerIdMutationVariables,
-      requestHeaders?: RequestInit['headers']
+      requestHeaders?: Dom.RequestInit['headers']
     ): Promise<UpdateProfileUsingStripeCustomerIdMutation> {
       return withWrapper(
         (wrappedRequestHeaders) =>
@@ -6282,13 +6248,13 @@ export function getSdk(
     },
     getPlans(
       variables: GetPlansQueryVariables,
-      requestHeaders?: RequestInit['headers']
+      requestHeaders?: Dom.RequestInit['headers']
     ): Promise<GetPlansQuery> {
       return withWrapper(
         (wrappedRequestHeaders) =>
           client.request<GetPlansQuery>(GetPlansDocument, variables, {
             ...requestHeaders,
-            ...wrappedRequestHeaders
+            ...wrappedRequestHeaders,
           }),
         'getPlans',
         'query'
@@ -6296,18 +6262,18 @@ export function getSdk(
     },
     getUser(
       variables: GetUserQueryVariables,
-      requestHeaders?: RequestInit['headers']
+      requestHeaders?: Dom.RequestInit['headers']
     ): Promise<GetUserQuery> {
       return withWrapper(
         (wrappedRequestHeaders) =>
           client.request<GetUserQuery>(GetUserDocument, variables, {
             ...requestHeaders,
-            ...wrappedRequestHeaders
+            ...wrappedRequestHeaders,
           }),
         'getUser',
         'query'
       );
-    }
+    },
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
