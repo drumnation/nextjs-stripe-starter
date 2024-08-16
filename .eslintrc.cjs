@@ -9,36 +9,36 @@ module.exports = defineConfig({
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
       rules: {
-        'react/prop-types': 'off'
-      }
+        'react/prop-types': 'off',
+      },
     },
     {
       extends: ['plugin:playwright/recommended'],
-      files: ['playwright/**/*.ts']
+      files: ['playwright/**/*.ts'],
     },
     {
       files: ['*.cjs'],
       rules: {
-        '@typescript-eslint/no-var-requires': 'off'
-      }
-    }
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
-      modules: true
+      modules: true,
     },
     ecmaVersion: 'latest',
     project: ['./tsconfig.json'],
     sourceType: 'module',
-    useJSXTextNode: true
+    useJSXTextNode: true,
   },
   plugins: [
     '@typescript-eslint',
@@ -46,7 +46,7 @@ module.exports = defineConfig({
     'simple-import-sort',
     'sort-keys-fix',
     'typescript-sort-keys',
-    'playwright'
+    'playwright',
   ],
   rules: {
     '@typescript-eslint/no-explicit-any': 'off',
@@ -56,23 +56,24 @@ module.exports = defineConfig({
     'import/newline-after-import': 'error',
     'import/no-anonymous-default-export': 'off',
     'import/no-duplicates': 'error',
+    'import/no-named-as-default': 'off',
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
     'simple-import-sort/exports': 'error',
     'simple-import-sort/imports': 'error',
     'sort-keys-fix/sort-keys-fix': 'warn',
     'typescript-sort-keys/interface': 'warn',
-    'typescript-sort-keys/string-enum': 'warn'
+    'typescript-sort-keys/string-enum': 'warn',
   },
   settings: {
     'import/resolver': {
       typescript: {
         alwaysTryTypes: true,
-        project: ['./tsconfig.json']
-      }
+        project: ['./tsconfig.json'],
+      },
     },
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
 });

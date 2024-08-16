@@ -27,6 +27,12 @@
       ],
       "@/styles/*": [
         "styles/*"
+      ],
+      "@/library/*": [
+        "library/*"
+      ],
+      "@/redux/*": [
+        "library/redux/*"
       ]
     },
     "incremental": true
